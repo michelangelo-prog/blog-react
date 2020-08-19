@@ -1,13 +1,13 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-import BlogPostContextProvider from "../contexts/BlogPostContext"
+import BlogPostContextProvider from "../contexts/BlogPostContext";
 
-import Home from "./Home"
-import Post from "./PostView"
-import Contact from "../components/Contact"
-import About from "../components/About"
-import Error from "../components/Error"
+import Home from "./Home";
+import Post from "./PostView";
+import Contact from "../components/Contact";
+import About from "../components/About";
+import Error from "../components/Error";
 
 import Navbar from "../components/Navbar";
 
@@ -15,7 +15,7 @@ import { Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <BlogPostContextProvider>
         <Navbar />
         <Switch>

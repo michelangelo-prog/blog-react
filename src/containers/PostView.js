@@ -1,15 +1,15 @@
 import React from "react";
 
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function Post() {
-    let { slug } = useParams();
+  let { slug } = useParams();
 
-    return (
-        <div className="post">
-            <h1>Slug: {slug}</h1>
-        </div>
-    )
+  return (
+    <div className="post">
+      <h1>Slug: {slug}</h1>
+    </div>
+  );
 }
 
 export default Post;

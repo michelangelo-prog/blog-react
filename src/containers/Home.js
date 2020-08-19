@@ -1,38 +1,51 @@
 import React, { useContext } from "react";
-import { BlogPostContext } from "../contexts/BlogPostContext"
+import { BlogPostContext } from "../contexts/BlogPostContext";
 import PostList from "../components/PostList";
+import Paginate from "../components/Paginate";
 
-import { getPosts } from "../api"
+import { getPosts } from "../api";
 
 function Home() {
-    const { state, dispatch } = useContext(BlogPostContext)
+  const { state, dispatch } = useContext(BlogPostContext);
 
-    React.useEffect(() => {
+  React.useEffect(() => {
+    dispatch({
+      type: "FETCH_POSTS_REQUEST",
+    });
+    let offset = state.currentPage * state.perPage;
+    getPosts(state.perPage, offset)
+      .then((response) => {
+        console.log(response.data);
         dispatch({
-            type: "FETCH_POSTS_REQUEST"
+          type: "FETCH_POSTS_SUCCESS",
+          payload: response.data,
         });
-        getPosts(state.page)
-            .then(response => {
-                console.log(response.data)
-                dispatch({
-                    type: "FETCH_POSTS_SUCCESS",
-                    payload: response.data
-                });
-            })
-            .catch(error => {
-                console.log(error)
-                dispatch({
-                    type: "FETCH_POSTS_FAILURE"
-                });
-            })    
-        }
-    , [state.page])
+      })
+      .catch((error) => {
+        console.log(error);
+        dispatch({
+          type: "FETCH_POSTS_FAILURE",
+        });
+      });
+  }, [state.currentPage]);
 
-    return (
-        <div className="Home">
-            <PostList posts={state.posts}/>
-        </div>
-    )
+  const setCurrentPage = (page) => {
+    dispatch({
+      type: "SET_CURRENT_PAGE",
+      payload: page - 1,
+    });
+  };
+
+  return (
+    <div className="home">
+      <PostList posts={state.posts} />
+      <Paginate
+        currentPage={state.currentPage + 1}
+        pages={Math.ceil(state.postsCount / state.perPage)}
+        setPage={setCurrentPage}
+      />
+    </div>
+  );
 }
 
 export default Home;

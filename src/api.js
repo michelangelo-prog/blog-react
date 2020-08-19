@@ -3,10 +3,11 @@ import axios from 'axios';
 const API = "http://0.0.0.0:8000/api/v1";
 
 
-export function getPosts(page) {
+export function getPosts(limit, offset) {
   return axios.get(`${API}/posts/`, {
       params: {
-        page: page
+        limit: limit,
+        offset: offset,
       }
   })
 }
