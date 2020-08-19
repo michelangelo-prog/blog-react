@@ -38,12 +38,20 @@ function Home() {
 
   return (
     <div className="home">
-      <PostList posts={state.posts} />
-      <Paginate
-        currentPage={state.currentPage + 1}
-        pages={Math.ceil(state.postsCount / state.perPage)}
-        setPage={setCurrentPage}
-      />
+      {state.isFetching ? (
+        <span className="loader">LOADING...</span>
+      ) : state.hasError ? (
+        <span className="error">AN ERROR HAS OCCURED</span>
+      ) : (
+        <>
+          <PostList posts={state.posts} />
+          <Paginate
+            currentPage={state.currentPage + 1}
+            pages={Math.ceil(state.postsCount / state.perPage)}
+            setPage={setCurrentPage}
+          />
+        </>
+      )}
     </div>
   );
 }
