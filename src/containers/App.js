@@ -7,7 +7,7 @@ import Home from "./Home";
 import Post from "./PostView";
 import Contact from "../components/Contact";
 import About from "../components/About";
-import Error from "../components/Error";
+import NoPageFound from "../components/NoPageFound";
 
 import Navbar from "../components/Navbar";
 
@@ -23,7 +23,7 @@ function App() {
           <Route exact path="/about" component={About} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/posts/:slug" children={<Post />} />
-          <Route component={Error} />
+          <Route component={NoPageFound} />
         </Switch>
       </BlogPostContextProvider>
     </div>
