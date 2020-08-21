@@ -4,7 +4,7 @@ import "./App.css";
 import BlogPostContextProvider from "../contexts/BlogPostContext";
 
 import Home from "./Home";
-import Post from "./PostView";
+import Post from "./Post";
 import Contact from "../components/Contact";
 import About from "../components/About";
 import NoPageFound from "../components/NoPageFound";
@@ -22,7 +22,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
           <Route exact path="/contact" component={Contact} />
-          <Route exact path="/posts/:slug" children={<Post />} />
+          <Route exact path="/post/:slug" children={<Post />} />
           <Route component={NoPageFound} />
         </Switch>
       </BlogPostContextProvider>
