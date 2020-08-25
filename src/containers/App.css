@@ -5,22 +5,86 @@
 }
 
 :root {
+  --main-bg-color: white;
+  --text-color-normal: black;
   --navbar-bg-color: hsl(0, 0%, 15%);
   --navbar-text-color: hsl(0, 0%, 85%);
   --navbar-text-color-focus: white;
   --navbar-bg-contrast: hsl(0, 0%, 25%);
+  --link-color: rgb(33, 110, 196);
 }
 
 /* globals */
 html {
-  font-size: 18px;
+  font-size: 22px;
 }
+
+body {
+  background-color: var(--main-bg-color);
+  color: var(--text-color-normal);
+}
+
+a {
+  color: var(--link-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.underlined-link:hover {
+  text-decoration: underline;
+}
+
+.underlined-link:active {
+  text-decoration: underline;
+}
+
 /* end of globals */
+
+/* home */
+#page-content {
+  position: absolute;
+  top: calc(64px + 1em);
+  left: 0;
+  right: 0;
+}
+
+/* Post */
+.post-preview-grid {
+  margin-top: 3em;
+  display: grid;
+  row-gap: 1em;
+}
+
+.post-preview {
+  display: grid;
+  padding: 20px 16px;
+}
+
+.post-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.post-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.post-preview-title {
+  font-weight: bold;
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+.post-preview-title a {
+  color: var(--text-color-normal);
+}
 
 /* Navbar */
 
 .container {
-  max-width: 1200px;
+  max-width: 1000px;
   padding-left: 1.4rem;
   padding-right: 1.4rem;
   margin-left: auto;
@@ -35,6 +99,7 @@ html {
   left: 0;
   right: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  z-index: 100;
 }
 
 .navbar-container {
