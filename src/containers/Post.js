@@ -31,15 +31,9 @@ function Post() {
   }, [slug]);
 
   return (
-    <div className="post">
-      {state.isFetching ? (
-        <span className="loader">LOADING...</span>
-      ) : state.hasError ? (
-        <span className="error">AN ERROR HAS OCCURED</span>
-      ) : (
-        state.post && <PostView post={state.post} />
-      )}
-    </div>
+    <main id="page-content">
+      {state.post && <PostView post={state.post} />}
+    </main>
   );
 }
 

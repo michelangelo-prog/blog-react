@@ -24,6 +24,10 @@ body {
   color: var(--text-color-normal);
 }
 
+h1 {
+  font-size: 1.8em;
+}
+
 a {
   color: var(--link-color);
   font-weight: bold;
@@ -109,6 +113,16 @@ button:hover {
   padding-bottom: 0.5em;
   font-weight: 300;
   font-size: medium;
+}
+
+.post-header {
+  margin-bottom: calc(1em + 0.5vw);
+}
+
+.post-content {
+  display: grid;
+  row-gap: calc(1em + 0.5vw);
+  overflow-wrap: break-word;
 }
 
 /* Paginate */

@@ -1,14 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function PostDetails(props) {
-  const publish_date = new Date(props.post.publish_date);
-  const month_name = publish_date.toLocaleString("en-us", { month: "short" });
-  const month = publish_date.getUTCMonth();
-  const day = publish_date.getUTCDate();
-  const year = publish_date.getUTCFullYear();
+import PostPublishDate from "./PostPublishDate";
 
+function PostDetails(props) {
   const linkToPost = `post/${props.post.slug}`;
+
   return (
     <li className="post-preview post-card">
       <h2 className="post-preview-title">
@@ -17,11 +14,7 @@ function PostDetails(props) {
         </Link>
       </h2>
 
-      <p className="post-date-published">
-        <time
-          dateTime={`${year}-${month}-${day}`}
-        >{`${month_name} ${day}, ${year}`}</time>
-      </p>
+      <PostPublishDate publishDate={props.post.publish_date} />
 
       <p className="post-preview-description">{props.post.summary}</p>
 

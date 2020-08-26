@@ -1,12 +1,19 @@
 import React from "react";
 
+import PostPublishDate from "./PostPublishDate";
+
 function PostView(props) {
   return (
-    <div className="postview">
-      <p>Title: {props.post.title}</p>
-      <p>published: {props.post.publish_date}</p>
-      <p>Content: {props.post.content}</p>
-    </div>
+    <article id="post" className="container">
+      <header className="post-header">
+        <h1 className="post-title">{props.post.title}</h1>
+        <PostPublishDate publishDate={props.post.publish_date} />
+      </header>
+      <div
+        className="post-content"
+        dangerouslySetInnerHTML={{ __html: props.post.content }}
+      />
+    </article>
   );
 }
 

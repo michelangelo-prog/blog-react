@@ -41,12 +41,7 @@ function Home() {
       <section className="container">
         <h1 className="blog-page-title">All Blog Posts</h1>
         <p>Welcome to my food blog !</p>
-
-        {state.isFetching ? (
-          <span className="loader">LOADING...</span>
-        ) : state.hasError ? (
-          <span className="error">AN ERROR HAS OCCURED</span>
-        ) : (
+        {state.posts && (
           <>
             <PostList posts={state.posts} />
             <Paginate
