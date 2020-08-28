@@ -2,7 +2,7 @@ import React from "react";
 
 function PostPublishDate(props) {
   const publishDate = new Date(props.publishDate);
-  const monthName = publishDate.toLocaleString("en-us", { month: "short" });
+  const monthName = publishDate.toLocaleString("en-us", { month: "long" });
   const month = publishDate.getUTCMonth();
   const day = publishDate.getUTCDate();
   const year = publishDate.getUTCFullYear();
