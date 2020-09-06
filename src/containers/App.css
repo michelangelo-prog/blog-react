@@ -126,6 +126,60 @@ input {
   overflow-wrap: break-word;
 }
 
+/* Comments */
+.comment-view-grid {
+  margin-top: 2em;
+  display: grid;
+  row-gap: 1em;
+}
+
+.comment-view-grid li {
+  border-bottom: 1px solid rgb(211, 209, 209);
+}
+
+.comment-view-grid li:last-child {
+  border-bottom: none;
+}
+
+.comments-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 100%;
+  border-radius: 5px;
+  padding: 20px 16px;
+}
+
+.comment-view {
+  display: grid;
+}
+
+.comment-view-author {
+  font-weight: bold;
+  font-size: 0.8em;
+  padding-bottom: 0.1em;
+}
+
+.comment-view-body {
+  padding-bottom: 0.5em;
+  font-size: 0.8em;
+}
+
+.comment-view-date {
+  padding-bottom: 0.5em;
+  font-weight: 300;
+  font-size: 0.7em;
+}
+
+.comments-view-count {
+  padding-bottom: 0.1em;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.comments-view-conunt-bottom-line {
+  border-top: 1px solid black;
+}
+
 /* Paginate */
 
 .pagination {

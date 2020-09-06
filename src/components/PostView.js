@@ -4,7 +4,7 @@ import PostPublishDate from "./PostPublishDate";
 
 function PostView(props) {
   return (
-    <article id="post" className="container">
+    <>
       <header className="post-header">
         <h1 className="post-title">{props.post.title}</h1>
         <PostPublishDate publishDate={props.post.publish_date} />
@@ -13,7 +13,7 @@ function PostView(props) {
         className="post-content"
         dangerouslySetInnerHTML={{ __html: props.post.content }}
       />
-    </article>
+    </>
   );
 }
 

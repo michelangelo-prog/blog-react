@@ -9,9 +9,11 @@ const initialState = {
   currentPage: 0,
   perPage: 6,
   post: null,
+  postComments: [],
   isFetching: false,
   hasError: false,
   postHasError: false,
+  postCommentsHasError: false,
 };
 
 function BlogPostContextProvider(props) {

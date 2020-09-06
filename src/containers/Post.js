@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom";
 
 import { BlogPostContext } from "../contexts/BlogPostContext";
 import PostView from "../components/PostView";
+import CommentsList from "../components/CommentsList";
 
-import { getPost } from "../api";
+import { getPost, getPostComments } from "../api";
 
 function Post() {
   const { state, dispatch } = useContext(BlogPostContext);
@@ -28,11 +29,34 @@ function Post() {
           type: "FETCH_POST_FAILURE",
         });
       });
+
+    dispatch({
+      type: "FETCH_POST_COMMENTS_REQUEST",
+    });
+    getPostComments(slug)
+      .then((response) => {
+        console.log(response.data);
+        dispatch({
+          type: "FETCH_POST_COMMENTS_SUCCESS",
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        dispatch({
+          type: "FETCH_POST_COMMENTS_FAILURE",
+        });
+      });
   }, [slug]);
 
   return (
     <main id="page-content">
-      {state.post && <PostView post={state.post} />}
+      {state.post && (
+        <article id="post" className="container">
+          <PostView post={state.post} />
+          <CommentsList comments={state.postComments} />
+        </article>
+      )}
     </main>
   );
 }

@@ -34,7 +34,25 @@ export const blogPostReducer = (state, action) => {
     case "FETCH_POST_FAILURE":
       return {
         ...state,
-        hasError: true,
+        postHasError: true,
+        isFetching: false,
+      };
+    case "FETCH_POST_COMMENTS_REQUEST":
+      return {
+        ...state,
+        isFetching: true,
+        postCommentsHasError: false,
+      };
+    case "FETCH_POST_COMMENTS_SUCCESS":
+      return {
+        ...state,
+        isFetching: false,
+        postComments: action.payload,
+      };
+    case "FETCH_POST_COMMENTS_FAILURE":
+      return {
+        ...state,
+        postCommentsHasError: true,
         isFetching: false,
       };
     case "SET_CURRENT_PAGE":

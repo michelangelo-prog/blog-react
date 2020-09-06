@@ -14,3 +14,7 @@ export function getPosts(limit, offset) {
 export function getPost(slug) {
   return axios.get(`${API}/posts/${slug}`);
 }
+
+export function getPostComments(slug) {
+  return axios.get(`${API}/posts/${slug}/comments`);
+}
