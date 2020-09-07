@@ -18,3 +18,7 @@ export function getPost(slug) {
 export function getPostComments(slug) {
   return axios.get(`${API}/posts/${slug}/comments`);
 }
+
+export function addPostComment(slug, data) {
+  return axios.post(`${API}/posts/${slug}/comments`, (data = data));
+}
