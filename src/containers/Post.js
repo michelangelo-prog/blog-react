@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { BlogPostContext } from "../contexts/BlogPostContext";
 import PostView from "../components/PostView";
 import CommentsList from "../components/CommentsList";
+import CommentForm from "../components/CommentForm"
 
 import { getPost, getPostComments } from "../api";
 
@@ -55,6 +56,7 @@ function Post() {
         <article id="post" className="container">
           <PostView post={state.post} />
           <CommentsList comments={state.postComments} />
+          <CommentForm />
         </article>
       )}
     </main>
