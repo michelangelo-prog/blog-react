@@ -130,7 +130,8 @@ input {
 .comment-view-grid {
   margin-top: 2em;
   display: grid;
-  row-gap: 1em;
+  row-gap: 0.4em;
+  margin-bottom: 2em;
 }
 
 .comment-view-grid li {
@@ -170,18 +171,60 @@ input {
   font-size: 0.7em;
 }
 
-.comments-view-count {
+.comment-title {
   padding-bottom: 0.1em;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.1em;
 }
 
-.comments-view-conunt-bottom-line {
+.comment-title-bottom-line {
   border-top: 1px solid black;
 }
 
-/* Paginate */
+/* Comment-Form */
+.comment-form input[type="email"],
+input[type="text"],
+textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid #ccc;
+  resize: vertical;
+  margin-left: 0%;
+}
 
+.comment-form input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 0%;
+}
+
+.comment-form label {
+  font-size: 0.7em;
+  font-weight: 400;
+}
+
+.comment-form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.comment-notes {
+  font-size: 0.6em;
+  font-weight: 300;
+}
+
+.required {
+  color: rgb(255, 0, 0);
+}
+
+.comment-form-comment {
+  display: block;
+}
+
+/* Paginate */
 .pagination {
   padding: 1em;
   text-align: right;
